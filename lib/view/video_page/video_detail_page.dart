@@ -17,7 +17,9 @@ class VideoDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: const Icon(Icons.arrow_back, color: Colors.black),
+        leading: InkWell(
+          onTap: ()=>Navigator.pop(context),
+          child: const Icon(Icons.arrow_back, color: Colors.black)),
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
