@@ -1,7 +1,9 @@
 import 'package:edu_go/constants/color_constants.dart';
-import 'package:edu_go/constants/custom_button.dart';
+import 'package:edu_go/custom_widgets.dart/custom_button.dart';
 import 'package:edu_go/view/video_page/video_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class CourseChip extends StatelessWidget {
   final String title;
@@ -56,12 +58,8 @@ class CourseCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 CustomButton(
                   onPressed: () {
-                     Navigator.push(
-    context,
-    MaterialPageRoute<void>(
-      builder: (context) => const VideoDetailPage(),
-    ),
-  );
+                    
+                   Get.to(()=>VideoDetailPage());
                   },
                   text: "Explore More",
                 )

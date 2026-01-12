@@ -13,22 +13,21 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: const Column(
-        spacing: 10,
-          children: [
-          
-               HeaderSection(),
-               
-          
-           
-            ActiveCourseCard(),
-            PopularCoursesSection(),
-            LiveSessionCard(),
-            CommunityCard(),
-            ReviewsSection(),
-            HelpSection()
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            spacing: 10,
+            children: [
+              HeaderSection(),
+
+              ActiveCourseCard(),
+              PopularCoursesSection(),
+              LiveSessionCard(),
+              CommunityCard(),
+              ReviewsSection(),
+              HelpSection(),
+            ],
+          ),
         ),
       ),
     );

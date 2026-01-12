@@ -52,7 +52,7 @@ class HelpSection extends StatelessWidget {
                     style: OutlinedButton.styleFrom(
                     
                       shape: RoundedRectangleBorder(
-                        
+                       
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),

@@ -1,5 +1,5 @@
 import 'package:edu_go/constants/color_constants.dart';
-import 'package:edu_go/constants/custom_button.dart';
+import 'package:edu_go/custom_widgets.dart/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class CommunityCard extends StatelessWidget {

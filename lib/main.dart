@@ -1,6 +1,7 @@
 import 'package:edu_go/constants/color_constants.dart';
 import 'package:edu_go/view/introduction/intro_1.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Edugo App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

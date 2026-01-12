@@ -1,8 +1,10 @@
 
 
 import 'package:edu_go/constants/color_constants.dart';
-import 'package:edu_go/constants/custom_button.dart';
+import 'package:edu_go/custom_widgets.dart/custom_button.dart';
+import 'package:edu_go/view/home_page/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ConstantIntroPage extends StatelessWidget {
   final String? image;
@@ -66,7 +68,10 @@ class ConstantIntroPage extends StatelessWidget {
                
                 Padding(
                  padding: const EdgeInsets.symmetric(horizontal: 60),
-                  child: CustomButton(onPressed: (){},text: "Skip",borderRadius: 50, textColor: ColorConstants.primary,backgroundColor: ColorConstants.secondary,),
+                  child: CustomButton(onPressed: (){
+                    Get.offAll(HomeScreen());
+
+                  },text: "Skip",borderRadius: 50, textColor: ColorConstants.primary,backgroundColor: ColorConstants.secondary,),
                 )
               ],),
             ),

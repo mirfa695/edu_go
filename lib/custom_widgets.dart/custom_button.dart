@@ -13,6 +13,7 @@ class CustomButton extends StatelessWidget {
   final double? height;
   final Widget? customWidget;
   final double? width;
+  final double? fontSize;
 
   const CustomButton({
     Key? key,
@@ -24,6 +25,7 @@ class CustomButton extends StatelessWidget {
     this.borderRadius,
     this.iconColor,
     this.customWidget,
+    this.fontSize,
     this.padding,this.height=50,this.width
   }) : super(key: key);
 
@@ -49,8 +51,9 @@ class CustomButton extends StatelessWidget {
           if(text!=null)  Text(
               text??"",
               style: TextStyle(
+
                 color: textColor,
-                fontSize: 16.0,
+                fontSize:fontSize?? 16.0,
                 fontWeight: FontWeight.bold,
               ),
             ),

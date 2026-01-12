@@ -1,6 +1,7 @@
 import 'package:edu_go/view/home_page/home_screen.dart';
 import 'package:edu_go/view/introduction/elements/constant_intro_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SecondIntroPage extends StatelessWidget {
   const SecondIntroPage({super.key});
@@ -12,12 +13,8 @@ class SecondIntroPage extends StatelessWidget {
       title: "Learn. Practice.\n Succeed.",
       description: "Structured content, mock tests, and progress tracking in one place.",
       onNext: (){
-        Navigator.push(
-    context,
-    MaterialPageRoute<void>(
-      builder: (context) => const HomeScreen(),
-    ),
-  );
+       Get.offAll(HomeScreen());
+
       },
     );
   }

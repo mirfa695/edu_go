@@ -1,6 +1,9 @@
 import 'package:edu_go/constants/color_constants.dart';
+import 'package:edu_go/controller/home_controller.dart';
 import 'package:edu_go/view/home_page/banner_card.dart';
+import 'package:edu_go/view/streak_page/streak_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -9,6 +12,7 @@ class HeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
      double  screenHeight= MediaQuery.of(context).size.height;
     double  screenWidth= MediaQuery.of(context).size.width;
+     final HomeController controller = Get.put(HomeController());
     return SizedBox(
       height: 250,width: 800,
       child: Stack(
@@ -25,29 +29,39 @@ class HeaderSection extends StatelessWidget {
            
           ),
         ),
-        Padding(
+       Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (controller.error.isNotEmpty) {
+          return Center(child: Text("Error while fetching user data"));
+        }
+        return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 
                 children: [
                   Text(
-                    "Good Morning, Arjun",
+                    controller.userData.value.greeting??"",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                   Spacer(),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      children: [
-                        const Text("Day 7"),
-                        SizedBox(width: 10,),
-                        Image.asset("assets/images/fire_icon.png",height: 15,width: 15,)
-                      ],
+                  InkWell(
+                    onTap: ()=>Get.to(()=> StreakPage()),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: [
+                          const Text("Day 7"),
+                          SizedBox(width: 10,),
+                          Image.asset("assets/images/fire_icon.png",height: 15,width: 15,)
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -57,7 +71,8 @@ class HeaderSection extends StatelessWidget {
                   )
                 ],
               ),
-            ),
+            );
+        }),  
             Positioned(
               bottom: 0,
               child: BannerCard())
